@@ -1,16 +1,24 @@
 import "./card.css";
-import Img01 from "../assets/001.png";
 
-const Card = () => {
+const Card = (props) => {
+  const handleClick = () => {
+    alert(props.name + " Xin chào!");
+  };
+
   return (
     <>
-      <div className="card">
-        <img src={Img01} alt="" />
-        <p className="pokemon_id">#0001</p>
-        <p className="pokemon_name">Bulbasaur</p>
+      <div className="card" onClick={handleClick}>
+        <img src={props.img} alt="" />
+        <p className="pokemon_id">{props.id}</p>
+        <p className="pokemon_name">{props.name}</p>
         <div className="pokemon_class_wrapper">
-          <span style={{ color: "black" }}>Grass</span>
-          <span style={{ background: "#8E7CC3" }}>Poison</span>
+          {props.types.map((type, index) => {
+            return (
+              <span className={type} key={index}>
+                {type}
+              </span>
+            );
+          })}
         </div>
       </div>
     </>
