@@ -1,4 +1,4 @@
-import './App.css'
+import "./App.css";
 import List from "./components/List";
 
 function App() {
@@ -25,19 +25,20 @@ function App() {
 
   return (
     <>
-  <div className='wrapper'>
-    {students.map((student) => {
-      return (
-        <List
-        key={student.id}
-        name={student.name}
-        id={student.id}
-        total={student.total}/>
-      )
-    })}
-  </div>
+      <div className="wrapper">
+        {students.map((student) => {
+          return (
+            <List
+              key={student.id}
+              name={student.name}
+              id={student.id}
+              total={student.total}
+            />
+          );
+        })}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

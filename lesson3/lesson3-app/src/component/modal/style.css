@@ -1,0 +1,65 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(101, 108, 133, 0.8);
+    position: fixed;
+    top: 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.modal .content {
+    width: 28vw;
+    height: 50%;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 18px;
+}
+
+.modal .content img {
+    width: 10vw;
+    margin: 20px 0px;
+}
+
+.modal .content .id input {
+    width: 60px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.modal .content .name {
+    margin: 10px 0px;
+}
+
+.modal .content .name input {
+    width: 100px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.modal .content .type{
+    margin-bottom: 10px;
+}
+
+.modal .content .type select {
+    width: 80px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.modal .content .btn{
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+    background-color: #7cba4a;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}

@@ -1,13 +1,12 @@
 import "./card.css";
 
 const Card = (props) => {
-  const handleClick = () => {
-    alert(props.name + " Xin chào!");
-  };
 
   return (
     <>
-      <div className="card" onClick={handleClick}>
+      <div className="card" onClick={()=> {
+        props.onClick();
+      }}>
         <img src={props.img} alt="" />
         <p className="pokemon_id">{props.id}</p>
         <p className="pokemon_name">{props.name}</p>

@@ -1,5 +1,33 @@
-.card-wrapper {
+.card-wrapper{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.traffic-light-wrapper{
+  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.traffic-light{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #202020;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.next-light{
+  padding: 10px;
+  margin-left: 32px;
+  font-size: 18px;
+  background-color: lightgray;
+  border-radius: 10px;
+  border: 1px solid #202020;
+  cursor: pointer;
 }
