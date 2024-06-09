@@ -65,6 +65,16 @@ function App() {
 
   const [pokeData, setPokeData] = useState(pokemons);
   const [crrData, setCrrData] = useState(null);
+  const handleClick = () => {
+    const index = pokeData.findIndex((item) => item.id === crrData.id);
+    if(index > -1) {
+      pokeData[index] = {
+        ...pokeData[index],
+        ...crrData,
+      };
+      setPokeData([...pokeData]);
+      setCrrData(null)}
+    }
 
   const [lightOn, setLightOn] = useState("green")
   const changeLight = () => {
@@ -87,7 +97,7 @@ function App() {
   return (
     <>
       <div className="card-wrapper">
-        {pokemons.map((pokeData) => {
+        {pokeData.map((pokeData) => {
           return (
             <Card
               key={pokeData.id}
@@ -101,8 +111,7 @@ function App() {
              />)
           })}
 
-  {crrData && <Modal pokemon={crrData} onClose={() => setCrrData(null)}/>} 
-
+  {crrData && <Modal pokemon={crrData} onClose={() => setCrrData(null)} onChangePokemon={(pokemon) => {setCrrData(pokemon)}} onSave={handleClick}/>} 
       </div>
 
      <div className="traffic-light-wrapper">
@@ -111,7 +120,9 @@ function App() {
       <Light color={"yellow"} isOn={lightOn === "yellow"}/>
       <Light color={"green"} isOn={lightOn === "green"}/>
       </div>
-          <button className="next-light" onClick={changeLight}>Chuyển</button>
+
+      <button className="next-light" onClick={changeLight}>Chuyển</button>
+
      </div>
     </>
   );

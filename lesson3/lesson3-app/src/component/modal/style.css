@@ -54,12 +54,16 @@
 }
 
 .modal .content .btn{
-    padding: 8px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal .content .btn .clickable {
     font-size: 16px;
-    font-weight: bold;
-    margin-top: 8px;
-    background-color: #7cba4a;
-    border: none;
+    padding: 6px 24px;
+    margin-top: 10px;
     border-radius: 10px;
-    color: white;
+    cursor: pointer;
+    background: #6eac3c;
 }

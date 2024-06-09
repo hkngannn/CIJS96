@@ -11,7 +11,13 @@ const Modal = (props) => {
                 <span>ID: </span> <input type="text" value={props.pokemon.id} />
                 </div>
                 <div className="name">
-                    <span>Name: </span> <input type="text" value={props.pokemon.name} />
+                    <span>Name: </span> <input type="text" value={props.pokemon.name} onChange={(e) => {
+                        const newPokemon = {
+                            ...props.pokemon,
+                            name: e.target.value
+                        }
+                        props.onChangePokemon(newPokemon)
+                    }}/>
                 </div>
                 <div className="type">
                     <span>Type: </span>
@@ -19,8 +25,11 @@ const Modal = (props) => {
                     {props.pokemon.types.map(type => (<option>{type}</option>))}
                     </select>
                 </div>
+<div className="btn">
+<button className="clickable" onClick={props.onClose}>OK</button>
+<button className="clickable" onClick={props.onSave}>Save</button>
+</div>
 
-                <button className="btn" onClick={props.onClose}>OK</button>
             </div>
         </div>
     )
