@@ -39,7 +39,7 @@
 }
 
 .Grass {
-  background-color: #6eac3c !important;
+  background-color: #6aa84f !important;
   color: black !important;
 }
 
@@ -49,4 +49,17 @@
 
 .Poison {
   background-color: #8e7cc3 !important;
+}
+
+.Water {
+  background-color: #6EC0FF !important;
+}
+
+.Bug {
+  background-color: #85521d  !important;
+}
+
+.Flying {
+  background-color: #cfe2f3 !important;
+  color: #666 !important;
 }

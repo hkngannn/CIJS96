@@ -27,7 +27,7 @@ const Modal = (props) => {
                 </div>
 <div className="btn">
 <button className="clickable" onClick={props.onClose}>OK</button>
-<button className="clickable" onClick={props.onSave}>Save</button>
+<button className="clickable" onClick={props.onSave}>SAVE</button>
 </div>
 
             </div>

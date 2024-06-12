@@ -65,5 +65,8 @@
     margin-top: 10px;
     border-radius: 10px;
     cursor: pointer;
-    background: #6eac3c;
+    background: #79ba44;
+    color: white;
+    border: none;
+    font-weight: bold;
 }
