@@ -1,0 +1,17 @@
+.card{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 24px 0px;
+}
+
+.card img{
+    width: 210px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.card .episode{
+    font-size: 18px;
+    font-weight: bold;
+}
