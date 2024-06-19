@@ -1,8 +1,7 @@
 import "./App.css";
 import Card from "./component/Card";
 import Modal from "./component/modal";
-// import Light from "./component/light/Light";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const pokemons = [
@@ -145,23 +144,37 @@ function App() {
   const [checkBox, setCheckBox] = useState([])
   const filterByClass = pokemons.filter(pokemon => checkBox.find(data => data === pokemon.class));
 
-  // const [lightOn, setLightOn] = useState("green")
-  // const changeLight = () => {
-  //   if(lightOn === 'green') {
-  //     setLightOn('yellow');
-  //     return;
-  //   };
+  const [dataPokemon, setDataPokemon] = useState([])
 
-  //   if(lightOn === 'yellow') {
-  //     setLightOn('red');
-  //     return;
-  //   };
+  useEffect(() => {
+    const fetchPokemon = async () => {
+      try {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+        const data = await response.json();
+        const pokemonDetails = await Promise.all(
+          data.results.map(async (pokemon) => {
+            const res = await fetch(pokemon.url);
+            return await res.json();
+          })
+        );
+          const formatedPokemon =  pokemonDetails.map(pokemon => ({
+            id: `#${String(pokemon.id).padStart(4, '0')}`,
+            name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
+            types: pokemon.types.map(typeInfo => typeInfo.type.name.charAt(0).toUpperCase() + typeInfo.type.name.slice(1)),
+            image: pokemon.sprites.front_default,
+          }))
 
-  //   if(lightOn === 'red') {
-  //     setLightOn('green');
-  //     return;
-  //   }
-  // }
+          setDataPokemon(formatedPokemon)
+      }
+      catch (error) {
+        console.error('Fail to fetch pokemons', error)
+      }
+    }
+    fetchPokemon()
+  }
+)
+
+console.log(dataPokemon)
 
   return (
     <>
@@ -233,17 +246,6 @@ function App() {
           />
         )}
       </div>
-      {/* 
-     <div className="traffic-light-wrapper">
-      <div className="traffic-light">
-      <Light color={"red"} isOn={lightOn === "red"}/>
-      <Light color={"yellow"} isOn={lightOn === "yellow"}/>
-      <Light color={"green"} isOn={lightOn === "green"}/>
-      </div>
-
-      <button className="next-light" onClick={changeLight}>Chuyển</button>
-
-    //  </div> */}
     </>
   );
 }
